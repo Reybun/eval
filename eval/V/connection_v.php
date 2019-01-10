@@ -1,0 +1,166 @@
+<?php $title = 'Connexion'; ?>
+<?php ob_start(); ?>
+<!DOCTYPE html>
+
+<html>
+  <head>
+      <meta charset="utf-8"/>
+    <!-- Le script du head -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="./V/css/connectio.css" rel="stylesheet" type="text/css" />
+    <!-- jQuery (Media Temple) : -->
+    <script charset="utf-8" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+    
+    <!-- Google : -->
+    <script charset="utf-8" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    
+    <!-- Microsoft : -->
+    <script charset="utf-8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.1.min.js"></script>
+    </head>
+<body>  
+<div class="background">
+<div class="page-container">
+
+    <center><img class="mb-4"  src="./V/img/logo.png" width="200" alt="">
+    <br><h1>MyEval</h1></center>
+    <form id="form" class="form-signin" action="index.php?page=connection" method="POST"> 
+     
+
+
+        <input type="text" name="username" class="form-control" placeholder="Pseudo" required autofocus>
+
+        <label for="inputPassword" class="sr-only"></label><br>
+        <input type="password" name="password" value="" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
+        <br><br><button >Se connecter</button><br>
+    </form>
+
+
+    <form action="index.php?page=inscription" method="POST">
+        <button type="submit"  id="inscription" name="inscription" value="inscription"><h3>Inscription</h3></button>
+    </form>
+
+</div>
+ </div>
+
+<!-- IMG FOND -->
+<SCRIPT language="JavaScript">
+
+
+/* url de votre image*/
+  var snowsrc="./V/img/grade.png"
+  var no = 20;
+  var ns4up = (document.layers) ? 1 : 0;
+  var ie4up = (document.all) ? 1 : 0;
+  var nn6up = (document.getElementById) ? 1 : 0;
+  var dx, xp, yp;
+  var am, stx, sty;
+  var i, doc_width = 300, doc_height = 200;
+
+ if (ns4up) {
+    doc_width = self.innerWidth-100;
+    doc_height = self.innerHeight-50;
+  } else if (ie4up) {
+    doc_width = document.body.clientWidth-100;
+    doc_height = document.body.clientHeight-50;
+} else if (nn6up) {
+    doc_width = self.innerWidth-100;
+    doc_height = self.innerHeight-50;}
+
+  dx = new Array();
+  xp = new Array();
+  yp = new Array();
+  am = new Array();
+  stx = new Array();
+  sty = new Array();
+
+  for (i = 0; i < no; ++ i) {
+    dx[i] = 0;
+    xp[i] = Math.random()*(doc_width-50);
+    yp[i] = Math.random()*doc_height;
+    am[i] = Math.random()*20;
+    stx[i] = 0.02 + Math.random()/10;
+    sty[i] = 0.7 + Math.random();
+    if (ns4up) {
+      if (i == 0) {
+        document.write("<layer name=dot"+ i +" left=15 top=15 visibility=show><img src='"+snowsrc+"' border=0></layer>");
+      } else {
+        document.write("<layer name=dot"+ i +" left=15 top=15 visibility=show><img src='"+snowsrc+"' border=0></layer>");
+      }
+    } else if (ie4up || nn6up) {
+      if (i == 0) {        document.write("<div id=dot"+ i +" style=\"POSITION: absolute; Z-INDEX: "+ i +"; VISIBILITY: visible; TOP: 15px; LEFT: 15px;\"><img src='"+snowsrc+"' border=0></div>");
+      } else {
+        document.write("<div id=dot"+ i +" style=\"POSITION: absolute; Z-INDEX: "+ i +"; VISIBILITY: visible; TOP: 15px; LEFT: 15px;\"><img src='"+snowsrc+"' border=0></div>");
+      }
+    }
+  }
+
+  function snowNS() {
+    for (i = 0; i < no; ++ i) {
+      yp[i] += sty[i];
+      if (yp[i] > doc_height-50) {
+        xp[i] = Math.random()*(doc_width-am[i]-30);
+        yp[i] = 0;
+        stx[i] = 0.02 + Math.random()/10;
+        sty[i] = 0.7 + Math.random();
+        doc_width = self.innerWidth;
+        doc_height = self.innerHeight;
+      }
+      dx[i] += stx[i];
+      document.layers["dot"+i].top = yp[i];
+      document.layers["dot"+i].left = xp[i] + am[i]*Math.sin(dx[i]);
+    }
+    setTimeout("snowNS()", 10);
+  }
+
+  function snowIE() {
+    for (i = 0; i < no; ++ i) {
+      yp[i] += sty[i];
+      if (yp[i] > doc_height-50) {
+        xp[i] = Math.random()*(doc_width-am[i]-30);
+        yp[i] = 0;
+        stx[i] = 0.02 + Math.random()/10;
+        sty[i] = 0.7 + Math.random();
+        doc_width = document.body.clientWidth;
+        doc_height = document.body.clientHeight;
+      }
+      dx[i] += stx[i];
+      document.all["dot"+i].style.pixelTop = yp[i];
+      document.all["dot"+i].style.pixelLeft = xp[i] + am[i]*Math.sin(dx[i]);
+    }
+    setTimeout("snowIE()", 10);
+  }
+
+function snowNN6() {
+    for (i = 0; i < no; ++ i) {
+      yp[i] += sty[i];
+      if (yp[i] > doc_height-50) {
+        xp[i] = Math.random()*(doc_width-am[i]-30);
+        yp[i] = 0;
+        stx[i] = 0.02 + Math.random()/10;
+        sty[i] = 0.7 + Math.random();
+        doc_width = self.innerWidth;
+        doc_height = self.innerHeight;
+      }
+      dx[i] += stx[i];
+      document.getElementById("dot"+i).style.top = yp[i];
+      document.getElementById("dot"+i).style.left = xp[i] + am[i]*Math.sin(dx[i]);
+    }
+    setTimeout("snowNN6()", 10);
+  }
+  if (ns4up) {
+    snowNS();
+  } else if (ie4up) {
+ snowIE();
+  } else if (nn6up) {
+ snowNN6();
+  }
+
+</SCRIPT>
+<!-- FIN IMG FOND -->
+
+<?php $content = ob_get_clean(); ?>
+<?php require(dirname(__FILE__).'/template_inscription.php'); ?>
+</body>
